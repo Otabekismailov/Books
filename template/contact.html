@@ -4,12 +4,12 @@
     <nav class="main-nav">
         <ul class="menu sf-arrows">
             <li class="megamenu-container active">
-                <a href="{% url 'home' %}" class="sf-with-ul">Home</a>
+                <a href="{% url 'polls:home' %}" class="sf-with-ul">Home</a>
 
 
             </li>
             <li>
-                <a href="category.html" class="sf-with-ul">Shop</a>
+                <a href="{% url 'polls:category' %}" class="sf-with-ul">Shop</a>
 
                 <div class="megamenu megamenu-md">
                     <div class="row no-gutters">
@@ -20,7 +20,7 @@
                                         <div class="menu-title">Shop with sidebar</div><!-- End .menu-title -->
                                         <ul>
 
-                                            <li><a href="category.html">Shop Grid 3 Columns</a></li>
+                                            <li><a href="{% url 'polls:category' %}">Shop Grid 3 Columns</a></li>
 
 
                                         </ul>
@@ -28,8 +28,8 @@
                                         <ul>
                                             <li><a href="cart.html">Cart</a></li>
                                             <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="dashboard.html">My Account</a></li>
+                                            <li><a href="{% url 'polls:wishlist' %}">Wishlist</a></li>
+                                            <li><a href="{% url 'polls:dashboard' %}">My Account</a></li>
                                             <li><a href="#">Lookbook</a></li>
                                         </ul>
                                     </div><!-- End .col-md-6 -->
@@ -39,7 +39,7 @@
 
                         <div class="col-md-4">
                             <div class="banner banner-overlay">
-                                <a href="category.html" class="banner banner-menu">
+                                <a href="{% url 'polls:category' %}" class="banner banner-menu">
                                     <img src="{% static 'images/menu/banner-1.jpg' %}" alt="Banner">
 
                                     <div class="banner-content banner-content-top">
@@ -54,7 +54,7 @@
                 </div><!-- End .megamenu megamenu-md -->
             </li>
             <li>
-                <a href="product.html" class="sf-with-ul">Product</a>
+                <a href="#" class="sf-with-ul">Product</a>
 
                 <div class="megamenu megamenu-sm">
                     <div class="row no-gutters">
@@ -62,7 +62,7 @@
                             <div class="menu-col">
                                 <div class="menu-title">Product Details</div><!-- End .menu-title -->
                                 <ul>
-                                    <li><a href="product.html">Default</a></li>
+                                    <li><a href="#">Default</a></li>
                                     {#                                    <li><a href="product-centered.html">Centered</a></li>#}
                                     {#                                    <li><a href="product-extended.html"><span>Extended Info<span#}
                                     {#                                            class="tip tip-new">New</span></span></a></li>#}
@@ -77,7 +77,7 @@
 
                         <div class="col-md-6">
                             <div class="banner banner-overlay">
-                                <a href="category.html">
+                                <a href="{% url 'polls:category' %}">
                                     <img src="{% static 'images/menu/banner-2.jpg' %}" alt="Banner">
 
                                     <div class="banner-content banner-content-bottom">
@@ -96,21 +96,21 @@
 
                 <ul>
                     <li>
-                        <a href="{% url 'about' %}" class="sf-with-ul">About</a>
+                        <a href="{% url 'polls:about' %}" class="sf-with-ul">About</a>
 
 
                     </li>
                     <li>
-                        <a href="contact.html" class="sf-with-ul">Contact</a>
+                        <a href="{% url 'polls:contact' %}" class="sf-with-ul">Contact</a>
 
                         <ul>
-                            <li><a href="contact.html">Contact 01</a></li>
+                            <li><a href="{% url 'polls:contact' %}">Contact 01</a></li>
 
                         </ul>
                     </li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="{% url 'account:login' %}">Login</a></li>
                     <li><a href="faq.html">FAQs</a></li>
-                    <li><a href="{% url '404' %}">Error 404</a></li>
+                    <li><a href="{% url 'polls:404' %}">Error 404</a></li>
                     {#                    <li><a href="coming-soon.html">Coming Soon</a></li>#}
                 </ul>
             </li>
@@ -129,7 +129,7 @@
         </nav><!-- End .breadcrumb-nav -->
         <div class="container">
             <div class="page-header page-header-big text-center"
-                 style="background-image: url('assets/images/contact-header-bg.jpg')">
+                 style="background-image: url({% static 'images/contact-header-bg.jpg' %})">
                 <h1 class="page-title text-white">Contact us<span class="text-white">keep in touch with us</span></h1>
             </div><!-- End .page-header -->
         </div><!-- End .container -->

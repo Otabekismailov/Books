@@ -28,14 +28,15 @@ def login_page(request):
         if model.all().filter(email__exact=form.data['username']):
             users = model.first()
             user = authenticate(username=users, password=form.data['password'])
-
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('polls:home')
         else:
             user = authenticate(username=form.data['username'], password=form.data['password'])
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('polls:home')
 
     return render(request, 'login.html')
+
+

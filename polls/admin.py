@@ -1,7 +1,16 @@
 from django.contrib import admin
+from polls.models import *
 
-from polls.models import Product, ProductImage, ProductaName
 
-admin.site.register(Product)
-admin.site.register(ProductImage)
-admin.site.register(ProductaName)
+class ProductImageStacked(admin.StackedInline):
+    model = ProductImage
+    extra = 1
+
+
+@admin.register(Product)
+class ProductStacked(admin.ModelAdmin):
+    inlines = [ProductImageStacked]
+
+
+admin.site.register(CategoryMolla)
+admin.site.register(WishList)
