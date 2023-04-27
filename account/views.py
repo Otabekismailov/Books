@@ -12,13 +12,21 @@ def register(request):
     }
     if request.method == 'POST':
         form = UsersCreationForm(request.POST)
+        user = User.objects.all().filter(email=form.data['email'])
+        if not user:
+            if form.is_valid():
+                form.save()
+                context['create'] = 'Your account has been created. You can log in now!'
 
-        if form.is_valid():
-            form.save()
             messages.success(request, f'Your account has been created. You can log in now!')
-            return redirect('account:login')
-        context['form'] = form
-    return render(request, 'login.html', context)
+            context['form'] = form
+            return render(request, 'login.html', context)
+        else:
+            messages.error(request, 'This user is already exists')
+            context['error_user'] = 'This user is already exists'
+            return render(request, 'login.html', context)
+
+
 
 
 def login_page(request):
@@ -38,5 +46,3 @@ def login_page(request):
                 return redirect('polls:home')
 
     return render(request, 'login.html')
-
-

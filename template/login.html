@@ -84,6 +84,9 @@
                                  aria-labelledby="register-tab-2">
                                 <form action="{% url 'account:register' %}" method="post">
                                     {% csrf_token %}
+                                    {% if error_user %}
+                                        <p><strong style="color: red">{{ error_user }}</strong></p>{% else %}
+                                        <p><strong style="color: #1c7430">{{ create }}</strong></p>{% endif %}
                                     <div class="form-group">
                                         <label for="register-email-2">Username*</label>
                                         <input type="text" class="form-control" id="register-email-2"
@@ -121,7 +124,6 @@
                                         </div><!-- End .custom-checkbox -->
                                     </div><!-- End .form-footer -->
                                 </form>
-
                                 <div class="form-choice">
                                     <p class="text-center">or sign in with</p>
                                     <div class="row">

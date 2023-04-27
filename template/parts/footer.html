@@ -66,9 +66,9 @@
                                 {% else %}
                                     <li><a href="{% url 'account:login' %}">Sign in</a></li>
                                 {% endif %}
-                                <li><a href="../cart.html">View Cart</a></li>
+                                <li><a href="{% url 'polls:cart_view' %}">View Cart</a></li>
                                 <li><a href="{% url 'polls:wishlist' %}">My Wishlist</a></li>
-                                <li><a href="#">Track My Order</a></li>
+                                <li><a href="{% url 'polls:dashboard' %}">Track My Order</a></li>
                                 <li><a href="#">Help</a></li>
                             </ul><!-- End .widget-list -->
                         </div><!-- End .widget -->
