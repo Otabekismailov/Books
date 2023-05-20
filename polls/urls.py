@@ -1,12 +1,12 @@
 from django.urls import path, include
 
-from molla import settings
+
 from polls.views import Homepage, Error404, AboutTemplate, ContactTemplate, \
     DashboardTemolate, ProductDetail, categoryDetail, wish_list_add, WishListAdd, CartAdd, cart_list_add, \
     wish_list_delete, cart_list_delete, cart_list_add, cart_add_quantity, cart_delete_quantity, search, \
     product_list_add, product_list_delete, Order, order
 from django.conf.urls.static import static
-
+from molla import settings
 # Error_404.as_view()
 
 app_name = 'polls'
